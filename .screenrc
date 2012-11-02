@@ -1,0 +1,9 @@
+escape ^\v
+bind w windowlist -b
+hardstatus alwayslastline "%{=b wb}20%y/%m/%d %{=b wb}%c %{= wk} %-w%{=bu dg}%n %t%{-}%+w"
+startup_message off
+vbell on
+autodetach on
+bind ^U encoding utf8
+bind ^E encoding euc
+
