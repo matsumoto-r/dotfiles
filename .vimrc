@@ -25,16 +25,16 @@ highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
 highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
-set autoindent
+set noautoindent
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,euc-jp,cp932,iso-2022-jp
-set fileencodings+=,ucs-2le,ucs-2,utf-8
+set fileencodings=utf-8,ucs-bom,euc-jp,cp932,iso-2022-jp
+set fileencodings+=,ucs-2le,ucs-2
 set hidden
 set shortmess+=I
 set formatoptions-=ro 
@@ -49,22 +49,28 @@ set nocompatible               " be iMproved
 filetype off
 
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-" originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ruby-matchit'
+""if has('vim_starting')
+""  set runtimepath+=~/.vim/bundle/neobundle.vim
+""  call neobundle#rc(expand('~/.vim/bundle/'))
+""endif
+""" originalrepos on github
+""NeoBundle 'Shougo/neobundle.vim'
+""NeoBundle 'Shougo/vimproc'
+""NeoBundle 'VimClojure'
+""NeoBundle 'Shougo/vimshell'
+""NeoBundle 'Shougo/unite.vim'
+""NeoBundle 'Shougo/neocomplcache'
+""NeoBundle 'jpalardy/vim-slime'
+""NeoBundle 'scrooloose/syntastic'
+""NeoBundle 'ruby-matchit'
 ""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
 filetype plugin indent on     " required!
 filetype indent on
 " syntax on
+
+set textwidth=0
+if exists('&colorcolumn')
+    set colorcolumn=+1
+    autocmd FileType c,sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=80
+endif

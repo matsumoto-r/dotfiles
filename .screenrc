@@ -6,4 +6,4 @@ vbell on
 autodetach on
 bind ^U encoding utf8
 bind ^E encoding euc
-
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
