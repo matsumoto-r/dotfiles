@@ -5,4 +5,5 @@ sudo apt-get install -y autoconf
 sudo apt-get install -y libprotobuf-c0-dev
 sudo apt-get install -y libprotoc-dev
 sudo apt-get install -y protobuf-c-compiler
+sudo apt-get install -y asciidoc
 
