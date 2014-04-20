@@ -74,3 +74,4 @@ if exists('&colorcolumn')
     set colorcolumn=+1
     autocmd FileType c,sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=80
 endif
+autocmd BufWritePre * :%s/\s\+$//e
