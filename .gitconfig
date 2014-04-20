@@ -1,0 +1,5 @@
+[user]
+	email = matsumoto_r@net.ist.i.kyoto-u.ac.jp
+	name = MATSUMOTO Ryosuke
+[core]
+	editor = vim -c \"set fenc=utf-8\"
