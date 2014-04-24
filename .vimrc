@@ -37,9 +37,9 @@ set fileencodings=utf-8,ucs-bom,euc-jp,cp932,iso-2022-jp
 set fileencodings+=,ucs-2le,ucs-2
 set hidden
 set shortmess+=I
-set formatoptions-=ro 
+set formatoptions-=ro
 
-map <C-g> :Gtags 
+map <C-g> :Gtags
 map <C-h> :Gtags -f %<CR>
 map <C-j> :GtagsCursor<CR>
 map <C-n> :cn<CR>
@@ -75,3 +75,26 @@ if exists('&colorcolumn')
     autocmd FileType c,sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=80
 endif
 autocmd BufWritePre * :%s/\s\+$//e
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'rails.vim'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+" ...
+Bundle 'nginx.vim'
+au BufRead,BufNewFile nginx.conf,/etc/nginx/*,/usr/local/nginx/conf/* set ft=nginx
