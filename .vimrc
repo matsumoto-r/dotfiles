@@ -48,6 +48,8 @@ map <C-p> :cp<CR>
 set nocompatible               " be iMproved
 filetype off
 
+autocmd BufWinLeave ?* silent mkview
+autocmd BufWinEnter ?* silent loadview
 
 ""if has('vim_starting')
 ""  set runtimepath+=~/.vim/bundle/neobundle.vim
