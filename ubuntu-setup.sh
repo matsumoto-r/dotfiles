@@ -34,3 +34,7 @@ sudo apt-get install -y maven
 sudo apt-get install -y libmaven-shade-plugin-java
 sudo apt-get install -y python-dpkt tcpdump gdb tcl-dev
 sudo apt-get install -y ruby2.0 ruby2.0-dev
+
+# install go
+wget https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.2.2.linux-amd64.tar.gz 
