@@ -9,6 +9,11 @@ cp -pvfr .ssh ~/.
 cp -pvfr .vim ~/.
 cp -pvfr .vimrc ~/.
 
+# download repo
+if [ ! -d "~/DEV" ]; then
+  mkdir ~/DEV
+fi
+
 # install packages
 sudo apt-get -y update
 sudo apt-get install -y rake bison git gperf libmemcached-dev
@@ -36,8 +41,10 @@ sudo apt-get install -y python-dpkt tcpdump gdb tcl-dev
 sudo apt-get install -y ruby2.0 ruby2.0-dev
 
 # install go
-wget https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.2.2.linux-amd64.tar.gz
+if [ ! -d "/usr/local/go" ]; then
+  wget https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz
+  sudo tar -C /usr/local -xzf go1.2.2.linux-amd64.tar.gz
+fi
 
 # setup kvm
 sudo /sbin/modprobe kvm
