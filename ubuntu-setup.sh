@@ -50,4 +50,4 @@ fi
 
 # setup kvm
 sudo /sbin/modprobe kvm
-sudo gpasswd -a matsumotory kvm
+sudo gpasswd -a $USER kvm
