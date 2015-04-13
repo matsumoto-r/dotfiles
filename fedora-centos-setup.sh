@@ -25,6 +25,7 @@ yum -y install pcre-devel
 yum -y install tar
 yum -y install wget
 yum -y install zlib-devel
+yum -y install hiredis-devel
 
 rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
 rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
