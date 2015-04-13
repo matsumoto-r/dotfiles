@@ -51,3 +51,13 @@ fi
 # setup kvm
 sudo /sbin/modprobe kvm
 sudo gpasswd -a $USER kvm
+
+cd /usr/local/src/
+git clone https://github.com/sstephenson/ruby-build.git
+
+cd /usr/local/src/ruby-build
+sh install.sh
+ruby-build 2.1.4 /usr/local/ruby-2.1.4
+export PATH=/usr/local/ruby-2.1.4/bin:$PATH
+cd ~/
+

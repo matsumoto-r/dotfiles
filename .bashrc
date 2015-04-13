@@ -16,3 +16,5 @@ alias smm="ssh -2 -v -l matsumoto_r"
 alias ska='killall ssh-agent ; eval `ssh-agent` ; ssh-add ~/.ssh/id_rsa'
 export PKG_CONFIG_PATH=/lib/pkgconfig:/usr/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/local/lib/pkgconfig
 alias ssload='source ~/.bashrc'
+export PATH=/usr/local/ruby-2.1.4/bin:$PATH
+
