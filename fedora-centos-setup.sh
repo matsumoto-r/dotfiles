@@ -18,26 +18,29 @@ cp -pvfr .vimrc ~/.
 #sudo apt-get install -y libxml2-dev libevent-dev libjemalloc-dev libjansson-dev
 #sudo apt-get install -y libcunit1-dev
 
-yum -y groupinstall "Development Tools"
-yum -y install bison
-yum -y install openssl-devel
-yum -y install pcre-devel
-yum -y install tar
-yum -y install wget
-yum -y install zlib-devel
-yum -y install hiredis-devel
+sudo yum -y groupinstall "Development Tools"
+sudo yum -y install bison
+sudo yum -y install openssl-devel
+sudo yum -y install pcre-devel
+sudo yum -y install tar
+sudo yum -y install wget
+sudo yum -y install zlib-devel
+sudo yum -y install hiredis-devel
+sudo 
+sudo rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
+sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+sudo rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+sudo rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+sudo yum -y install --enablerepo=remi libmemcached-last-devel
 
-rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
-rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
-rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum -y install --enablerepo=remi libmemcached-last-devel
+if [ ! -d /usr/local/src/ruby-build ]; then
+  cd /usr/local/src/
+  sudo git clone https://github.com/sstephenson/ruby-build.git
+  cd /usr/local/src/ruby-build
+  sudo sh install.sh
+  sudo ruby-build 2.1.4 /usr/local/ruby-2.1.4
+  cd ~/
+else
+  echo ruby-build already exists
+fi
 
-cd /usr/local/src/
-git clone https://github.com/sstephenson/ruby-build.git
-
-cd /usr/local/src/ruby-build
-sh install.sh
-ruby-build 2.1.4 /usr/local/ruby-2.1.4
-export PATH=/usr/local/ruby-2.1.4/bin:$PATH
-cd ~/
