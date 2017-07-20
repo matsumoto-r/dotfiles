@@ -1,107 +1,43 @@
-set nocompatible
-set fileformats=unix,dos,mac
-set vb t_vb=
-set backspace=indent,eol,start
-set nobackup
-set writebackup
-set history=100
-set ignorecase
-set smartcase
-set wrapscan
-set noincsearch
-set title
-set nonumber
-set showcmd
-set laststatus=2
-set showmatch
-set matchtime=2
-syntax on
-set hlsearch
-highlight Comment ctermfg=Grey
-set wildmenu
-set textwidth=0
-set wrap
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /　/
-set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
-highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set noautoindent
-set encoding=utf-8
-set termencoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,ucs-bom,euc-jp,cp932,iso-2022-jp
-set fileencodings+=,ucs-2le,ucs-2
-set hidden
-set shortmess+=I
-set formatoptions-=ro
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-map <C-g> :Gtags
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'rails.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'c.vim'
+Plugin 'ruby.vim'
+Plugin 'gtags.vim'
+
+call vundle#end()            " required
+filetype plugin indent on
+
+syntax on
+
+map <C-g> :Gtags 
 map <C-h> :Gtags -f %<CR>
-map <C-j> :GtagsCursor<CR>
+map <C-h> :GtagsCursor<CR>
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 
-set nocompatible               " be iMproved
-filetype off
-
-autocmd BufWinLeave ?* silent mkview
-autocmd BufWinEnter ?* silent loadview
-
-""if has('vim_starting')
-""  set runtimepath+=~/.vim/bundle/neobundle.vim
-""  call neobundle#rc(expand('~/.vim/bundle/'))
-""endif
-""" originalrepos on github
-""NeoBundle 'Shougo/neobundle.vim'
-""NeoBundle 'Shougo/vimproc'
-""NeoBundle 'VimClojure'
-""NeoBundle 'Shougo/vimshell'
-""NeoBundle 'Shougo/unite.vim'
-""NeoBundle 'Shougo/neocomplcache'
-""NeoBundle 'jpalardy/vim-slime'
-""NeoBundle 'scrooloose/syntastic'
-""NeoBundle 'ruby-matchit'
-""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
-
-filetype plugin indent on     " required!
-filetype indent on
-" syntax on
-
-set textwidth=0
-if exists('&colorcolumn')
-    set colorcolumn=+1
-    autocmd FileType c,sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=80
+if has("autocmd")
+  augroup redhat
+    " In text files, always limit the width of text to 78 characters
+    autocmd BufRead *.txt set tw=78
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+  augroup END
 endif
-autocmd BufWritePre * :%s/\s\+$//e
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'rails.vim'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" ...
-Bundle 'nginx.vim'
-au BufRead,BufNewFile nginx.conf,/etc/nginx/*,/usr/local/nginx/conf/* set ft=nginx
-augroup HighlightTrailingSpaces
-  autocmd!
-  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
+""autocmd BufRead *.tex set tw=80
