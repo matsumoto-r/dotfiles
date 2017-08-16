@@ -40,4 +40,13 @@ if has("autocmd")
   augroup END
 endif
 
+set expandtab
+set autoindent
+set smartindent
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 ""autocmd BufRead *.tex set tw=80
