@@ -49,4 +49,5 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
+autocmd! FileType markdown hi! def link markdownItalic Normal
 ""autocmd BufRead *.tex set tw=80
