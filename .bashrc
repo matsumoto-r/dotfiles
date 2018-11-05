@@ -23,5 +23,5 @@ export CPATH=/usr/local/opt/openssl/include:$CPATH
 export LIBRARY_PATH=/usr/local/opt/openssl/lib:$LIBRARY_PATH
 #export PATH=/usr/local:$PATH
 
-alias sync_matsumotory='rsync -auvz -e "ssh -p 2222" /Users/matsumotory/DEV/matsumotory/_site/* pupu.jp-matsumotory@ssh421.lolipop.jp:/home/users/0/pupu.jp-matsumotory/web/research/'
+alias sync_matsumotory='rsync -auvz -e "ssh -p 2222" /Users/$USER/DEV/matsumotory/_site/* pupu.jp-matsumotory@ssh421.lolipop.jp:/home/users/0/pupu.jp-matsumotory/web/research/'
 alias md2pfd='pandoc -V documentclass=ltjarticle --latex-engine=lualatex'
