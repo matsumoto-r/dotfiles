@@ -17,6 +17,7 @@ if [ ! -d ~/DEV ]; then
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # install packages
 #sudo apt-get -y update
